@@ -140,6 +140,7 @@ export default function Admin() {
                             <thead className="table-light">
                                 <tr>
                                     <th>Name</th>
+                                    <th>Sale Status</th>
                                     <th>Total Stock</th>
                                     <th>Live Stock</th>
                                     <th>Pending Holds</th>
@@ -151,6 +152,20 @@ export default function Admin() {
                                 {stockPerProduct.map((p) => (
                                     <tr key={p.productId}>
                                         <td>{p.name}</td>
+                                        <td>
+                                            <span
+                                                className={
+                                                    'badge ' +
+                                                    (p.saleStatus === 'LIVE'
+                                                        ? 'bg-success'
+                                                        : p.saleStatus === 'UPCOMING'
+                                                            ? 'bg-warning text-dark'
+                                                            : 'bg-secondary')
+                                                }
+                                            >
+                                                {p.saleStatus}
+                                            </span>
+                                        </td>
                                         <td>{p.totalStock}</td>
                                         <td>
                                             <span
@@ -173,7 +188,7 @@ export default function Admin() {
                                 ))}
                                 {stockPerProduct.length === 0 && (
                                     <tr>
-                                        <td colSpan="6" className="text-center text-muted py-3">
+                                        <td colSpan="7" className="text-center text-muted py-3">
                                             No products found.
                                         </td>
                                     </tr>

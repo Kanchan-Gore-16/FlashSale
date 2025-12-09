@@ -75,6 +75,13 @@ router.get('/metrics', async (req, res) => {
           expired: 0,
         };
 
+        let saleStatus = 'UPCOMING';
+        if (p.saleStartsAt <= now && p.saleEndsAt >= now) {
+          saleStatus = 'LIVE';
+        } else if (p.saleEndsAt < now) {
+          saleStatus = 'EXPIRED';
+        }
+
         return {
           productId: p.id,
           name: p.name,
@@ -83,6 +90,7 @@ router.get('/metrics', async (req, res) => {
           pending: stats.pending,
           confirmed: stats.confirmed,
           expired: stats.expired,
+          saleStatus,
         };
       });
 
