@@ -96,7 +96,7 @@ Create a database named:
 flashsale
 ```
 
-✅ PostgreSQL connection string
+#### ✅ PostgreSQL connection string
 Replace:
   - YOUR_USER → your DB username
   - YOUR_PASSWORD → your DB password
