@@ -96,22 +96,22 @@ Create a database named:
 flashsale
 ```
 
-# ✅ PostgreSQL connection string
-# Replace:
-#   - YOUR_USER → your DB username
-#   - YOUR_PASSWORD → your DB password
-#   - localhost:5432 → your DB host + port
-#   - flashsale → your database name
+✅ PostgreSQL connection string
+Replace:
+  - YOUR_USER → your DB username
+  - YOUR_PASSWORD → your DB password
+  - localhost:5432 → your DB host + port
+  - flashsale → your database name
 DATABASE_URL="postgresql://YOUR_USER:YOUR_PASSWORD@localhost:5432/flashsale"
 
-# ✅ Redis connection string
-# For local Redis:
+✅ Redis connection string
+For local Redis:
 REDIS_URL="redis://127.0.0.1:6379"
 
-# If you're using a cloud provider (e.g. Upstash), it may look like:
-# REDIS_URL="rediss://default:password@us1-some-id.upstash.io:6379"
+If you're using a cloud provider (e.g. Upstash), it may look like:
+REDIS_URL="rediss://default:password@us1-some-id.upstash.io:6379"
 
-# ✅ Backend server port (optional)
+✅ Backend server port (optional)
 PORT=4000
 
 
