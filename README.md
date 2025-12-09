@@ -96,11 +96,30 @@ Create a database named:
 flashsale
 ```
 
-Update `.env` file:  
-_Edit url as per your user & password_
+# ✅ PostgreSQL connection string
+# Replace:
+#   - YOUR_USER → your DB username
+#   - YOUR_PASSWORD → your DB password
+#   - localhost:5432 → your DB host + port
+#   - flashsale → your database name
+DATABASE_URL="postgresql://YOUR_USER:YOUR_PASSWORD@localhost:5432/flashsale"
+
+# ✅ Redis connection string
+# For local Redis:
+REDIS_URL="redis://127.0.0.1:6379"
+
+# If you're using a cloud provider (e.g. Upstash), it may look like:
+# REDIS_URL="rediss://default:password@us1-some-id.upstash.io:6379"
+
+# ✅ Backend server port (optional)
+PORT=4000
+
+
+
+Example `.env` file:  
 
 ```env
-DATABASE_URL="postgresql://user:password@localhost:5432/flashsale" #as per your database creds
+DATABASE_URL="postgresql://user:password@localhost:5432/flashsale"
 REDIS_URL="redis://127.0.0.1:6379"
 PORT=4000
 ```
