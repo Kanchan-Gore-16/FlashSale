@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id           Int       @id @default(autoincrement())
+  name         String
+  description  String
+  price        Int       // store in smallest unit: paise/cents
+  totalStock   Int       @map("total_stock")
+  saleStartsAt DateTime  @map("sale_starts_at")
+  saleEndsAt   DateTime  @map("sale_ends_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+
+  orders          Order[]
+  inventoryEvents InventoryEvent[]
+
+  @@map("products")
+}
+
+model Order {
+  id            Int       @id @default(autoincrement())
+  productId     Int       @map("product_id")
+  customerEmail String    @map("customer_email")
+  quantity      Int
+  status        OrderStatus
+  holdExpiresAt DateTime? @map("hold_expires_at")
+  createdAt     DateTime  @default(now()) @map("created_at")
+
+  product         Product         @relation(fields: [productId], references: [id])
+  inventoryEvents InventoryEvent[]
+
+  @@map("orders")
+}
+
+model InventoryEvent {
+  id        Int                 @id @default(autoincrement())
+  productId Int                 @map("product_id")
+  type      InventoryEventType
+  delta     Int
+  metadata  Json?
+  createdAt DateTime            @default(now()) @map("created_at")
+
+  product Product @relation(fields: [productId], references: [id])
+  order   Order?  @relation(fields: [orderId], references: [id])
+  orderId Int?
+
+  @@map("inventory_events")
+}
+
+enum OrderStatus {
+  pending
+  confirmed
+  cancelled
+  expired
+}
+
+enum InventoryEventType {
+  stock_added
+  hold_created
+  hold_released
+  order_confirmed
+}
