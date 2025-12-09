@@ -73,7 +73,7 @@ This project demonstrates:
 
 ### ✅ 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Kanchan-Gore-16/FlashSale.git
 cd flashsale
 ```
 
