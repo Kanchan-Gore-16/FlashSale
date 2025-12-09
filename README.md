@@ -96,7 +96,7 @@ Create a database named:
 flashsale
 ```
 
-Update `.env` file: Edit url as per your user & password
+Update `.env` file: _Edit url as per your user & password_
 
 ```env
 DATABASE_URL="postgresql://user:password@localhost:5432/flashsale"
