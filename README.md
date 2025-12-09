@@ -104,14 +104,14 @@ Replace:
   - flashsale → your database name
 DATABASE_URL="postgresql://YOUR_USER:YOUR_PASSWORD@localhost:5432/flashsale"
 
-✅ Redis connection string
+#### ✅ Redis connection string
 For local Redis:
 REDIS_URL="redis://127.0.0.1:6379"
 
-If you're using a cloud provider (e.g. Upstash), it may look like:
+_If you're using a cloud provider (e.g. Upstash), it may look like:_
 REDIS_URL="rediss://default:password@us1-some-id.upstash.io:6379"
 
-✅ Backend server port (optional)
+#### ✅ Backend server port (optional)
 PORT=4000
 
 
