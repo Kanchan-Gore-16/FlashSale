@@ -33,7 +33,7 @@ router.get('/live', async (req, res) => {
 
     const result = products.map(p => {
       const delta = deltaMap.get(p.id) || 0;
-      const liveStock = p.totalStock + delta; // delta negative for holds/sales
+      const liveStock = p.totalStock + delta; 
       const sold = p.totalStock - liveStock;
       const soldPercent = p.totalStock > 0
         ? Math.round((sold / p.totalStock) * 100)

@@ -116,7 +116,7 @@ router.get('/metrics', async (req, res) => {
     for (const o of recentOrders) {
       const t = o.createdAt.getTime();
       const bucketStart = Math.floor(t / bucketMs) * bucketMs;
-      const key = new Date(bucketStart).toISOString(); // key
+      const key = new Date(bucketStart).toISOString(); 
 
       const prev = bucketsMap.get(key) || { bucket: key, sold: 0, expired: 0 };
       if (o.status === 'confirmed') {

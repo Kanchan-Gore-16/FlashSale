@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
 
     // If either exceeds maxHolds -> block
     if (emailCount > maxHolds || ipCount > maxHolds) {
-      await redis.incr('metrics:throttle_blocked'); // optional metric
+      await redis.incr('metrics:throttle_blocked');
 
       return res.status(429).json({
         error:

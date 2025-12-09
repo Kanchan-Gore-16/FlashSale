@@ -7,7 +7,7 @@ import productsRouter from './routes/products.js';
 import holdsRouter from './routes/holds.js';
 import ordersRouter from './routes/orders.js';
 import adminRouter from './routes/admin.js';
-import './jobs/expiryCleanup.js'; // start background cleanup
+import './jobs/expiryCleanup.js'; 
 
 const app = express();
 
