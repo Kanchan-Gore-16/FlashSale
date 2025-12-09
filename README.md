@@ -100,7 +100,7 @@ Update `.env` file:
 _Edit url as per your user & password_
 
 ```env
-DATABASE_URL="postgresql://user:password@localhost:5432/flashsale"
+DATABASE_URL="postgresql://user:password@localhost:5432/flashsale" #as per your database creds
 REDIS_URL="redis://127.0.0.1:6379"
 PORT=4000
 ```
